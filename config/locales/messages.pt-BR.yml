@@ -1,0 +1,10 @@
+"pt-BR":
+  messages:
+    confirm: Tem certeza?
+    listing: Listando Contatos
+    errors: Os seguintes erros ocorreram
+    created: Contato criado com sucesso
+    destroyed: Contato excluido com sucesso
+    updated: Contato atualizado com sucesso
+    index:
+      contacts: "Contatos"
