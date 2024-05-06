@@ -1,0 +1,39 @@
+<br/>
+<div class="basic-grey">
+
+  <script>
+      $.notify("<%= notice %>", "success");
+  </script>
+
+  <h1><%= "#{t('messages.listing')}" %></h1>
+
+  <table class="table table-dark table-striped">
+    <thead>
+    <tr>
+      <th><%= @contacts.model.human_attribute_name("NOMES") %></th>
+      <th><%= @contacts.model.human_attribute_name("TIPOS") %></th>
+      <th colspan="2"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @contacts.each do |contact| %>
+      <tr style="background: <%= cycle('white', '#f0f0f5') %>">
+        <td><%= contact.name %></td>
+        <td>
+          <% if contact.kind.present? %>
+            <%= contact.kind.description %>
+          <% end %>
+        </td>
+        <td><%= link_to t('buttons.edit'), edit_contact_path(contact) %></td>
+        <td><%= link_to t('buttons.destroy'), contact, method: :delete, data: { confirm: t('messages.confirm') } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <br>
+  <%= paginate @contacts %>
+  <br>
+  <%= link_to 'Voltar', root_path, class: "btn btn-primary" %>
+  <%= link_to t('buttons.new'), new_contact_path, class: "btn btn-success"%>
+</div>

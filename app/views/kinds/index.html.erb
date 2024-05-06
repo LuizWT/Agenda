@@ -1,0 +1,28 @@
+<div class="basic-grey">
+<p id="notice"><%= notice %></p>
+
+<h1>Tipos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kinds.each do |kind| %>
+      <tr>
+        <td style="text-align: center"><%= kind.description %></td>
+        <td style="text-align: center"><%= link_to 'Editar', edit_kind_path(kind) %></td>
+        <td style="text-align: center"><%= link_to 'Apagar', kind, method: :delete, data: { confirm: 'Você tem certeza' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Novo Tipo', new_kind_path, class: "btn btn-success" %>
+  <%= link_to 'Voltar', root_path, class: "btn btn-primary" %>
+</div>
